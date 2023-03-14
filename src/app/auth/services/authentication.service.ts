@@ -10,7 +10,7 @@ constructor(private authApiService:AuthApiService){}
 
   loginUser(username:number,password:string){
 
-    this.authApiService.loginUserApi({documento:username,password:password}).subscribe( 
+    this.authApiService.loginUserApi({documento:username,password:password}).subscribe(
       (response:any) =>{
       //const headers = response.getHeaders();
       //const names= headers.getAll();
@@ -18,7 +18,10 @@ constructor(private authApiService:AuthApiService){}
       //  console.log(headerName,headers.get(headerName));
       //});
       console.log(response);
-      console.log(response.getHeaders());
+      const headers =response.headers;
+      console.log(headers);
+      console.log(headers.getAll());
+      console.log(headers.get('Authorization'));
     })
   }
 
