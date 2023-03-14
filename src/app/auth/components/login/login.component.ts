@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../../services/authentication.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,12 +14,16 @@ password:string="";
 private usuarioLogueado:boolean | undefined;
 
 
-constructor(private authService:AuthenticationService ){}
+constructor(private authService:AuthService ){}
 
 loginUser(){
   console.log(this.username," ",this.password)
   this.authService.loginUser(this.username,this.password)
    
+}
+
+getStudent(){
+  this.authService.getStudent();
 }
 
 ngOnInit(){
