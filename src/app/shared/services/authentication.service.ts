@@ -20,7 +20,7 @@ constructor(private authApiService:AuthApiService){}
       const headers =response.headers;
       const bearer= headers.get('Authorization');
   
-        const token =bearer?.replace('Bearer','');
+        const token =bearer?.replace('Bearer ','');
         if (token != null){
           localStorage.setItem('token',token);
           logueado = true;
