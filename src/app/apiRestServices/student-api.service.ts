@@ -12,9 +12,10 @@ export class StudentApiService {
 
   private apiServerUrl=enviroment.apiBaseUrl;
 
-  getStudentById(id:number):Observable<any>{
-    return  this.http.get(
-      `${this.apiServerUrl}/v1/alumnos/${id}`)
+  getStudentById(id:number){
+    console.log("api");
+    console.log(this.http.get(
+      `${this.apiServerUrl}/v1/student/me`).subscribe(a=>{console.log(a)}));
   }
 
    

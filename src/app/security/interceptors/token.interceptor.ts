@@ -15,7 +15,7 @@ export class TokenInterceptor implements HttpInterceptor {
   constructor(private authentication:AuthenticationService ) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const token = this.authentication.getToken();
+    const token = localStorage.getItem('token');
     let cloned;
     if (token){
      cloned = request.clone({
