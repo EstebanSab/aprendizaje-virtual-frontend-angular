@@ -6,10 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 
-import { AuthModule } from './auth/auth.module';
-import { CourseModule } from './course/course.module';
-import { HomeModule } from './home/home.module';
-import { TokenInterceptor } from './security/interceptors/token.interceptor';
+import { AuthModule } from './modules/auth/auth.module';
+import { CourseModule } from './modules/course/course.module';
+import { HomeModule } from './modules/home/home.module';
+import { TokenInterceptor } from './core/interceptors/token.interceptor';
 
 
 @NgModule({
@@ -25,7 +25,9 @@ import { TokenInterceptor } from './security/interceptors/token.interceptor';
     HttpClientModule
   ],
   providers: [
-    {provide:HTTP_INTERCEPTORS,useClass:TokenInterceptor,multi:true}
+    {provide:HTTP_INTERCEPTORS,
+      useClass:TokenInterceptor,
+      multi:true}
   ],
   bootstrap: [AppComponent]
 })

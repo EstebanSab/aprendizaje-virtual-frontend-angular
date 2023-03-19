@@ -13,12 +13,5 @@ export class AuthApiService {
 
     private apiServerUrl=enviroment.apiBaseUrl;
 
-    constructor(private http:HttpClient) { }
-
-    public loginUserApi(uc:UserCredentials):Observable<HttpResponse<Object>>{
-      return  this.http.post(
-        `${this.apiServerUrl}/v1/auth/login`,
-        JSON.stringify(uc),
-        {observe:'response'});
-      }
+    
 }
