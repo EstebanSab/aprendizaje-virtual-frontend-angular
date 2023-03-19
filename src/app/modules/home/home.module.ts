@@ -7,11 +7,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 
+
 @NgModule({
   declarations: [
     CourseListComponent,
     CoursePreviewComponent,
-    HomeViewComponent
+    HomeViewComponent,
   ],
   imports: [
     CommonModule,

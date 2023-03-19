@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes,Router } from '@angular/router';
 
 import { AuthViewComponent } from './modules/auth/pages/auth-view/auth-view.component';
 import { CourseViewComponent } from './modules/course/pages/course-view/course-view.component';
@@ -17,5 +17,10 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {
- 
+  constructor(private router: Router){}
+
+  goCourseRedirect(){
+    this.router.navigate(['/course']);
+  }
+  
  }

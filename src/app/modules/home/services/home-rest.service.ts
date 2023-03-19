@@ -1,0 +1,26 @@
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { enviroment } from 'src/environments/enviroment';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class HomeRestService {
+
+  private apiServerUrl=enviroment.apiBaseUrl;
+  
+  constructor(private http:HttpClient) { }
+  
+  public getCoursesOfStudent():Observable<any>{
+    return  this.http.get(
+      `${this.apiServerUrl}/v1/course/login`)
+    }
+
+  public getCoursesOfProfessor():Observable<any>{
+    return  this.http.get(
+      `${this.apiServerUrl}/v1/course/login`)
+    }
+
+
+}

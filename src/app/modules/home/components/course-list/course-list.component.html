@@ -1,6 +1,6 @@
 <div class="course-container">
 <ng-template ngFor let-course [ngForOf]="courses">
-    <div class="course-item">
+    <div (click)="goCourseRedirection(course.id)" class="course-item">
         <home-course-preview
         [course]="course">
         </home-course-preview>
