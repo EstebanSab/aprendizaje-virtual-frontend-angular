@@ -9,8 +9,8 @@ import { CourseModel } from '../../model/CourseModel';
 })
 export class CoursePreviewComponent {
   @Input() course:CourseModel={
-  id:0,
-  name: '',
-  professors: []
-}
+    id: 0,
+    name: '',
+    professors: []
+  }
 }

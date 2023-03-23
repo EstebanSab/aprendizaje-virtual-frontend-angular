@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CourseModel } from '../../model/CourseModel';
+import { CourseModel, Professor } from '../../model/CourseModel';
 import { HomeRestService } from '../../services/home-rest.service';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 
@@ -20,18 +20,24 @@ courses:CourseModel[]= [];
 
 ngOnInit(): void {
   console.log("init");
-  /* 
-  courses = this.courseRestService.getCoursesOfProfessor().subscribe(
-    (professor)=>{
-      professor.foreach
+  
+   this.courseRestService.getCoursesOfStudent().subscribe(
+    (courses)=>{
+      courses.forEach((course:CourseModel) => {
+
+        course.professors=this.getProfessorOfCourse(course.id);
+
+        this.courses.push(course);
+      });
+
     }
   
-  )*/
+  )
 
-  this.courses =[{
+  /*this.courses =[{
     id:1,
     name:'informatica II',
-    professors:['Pablo']
+    professors:[{}]
   },{
     id:2,
     name:'poo II',
@@ -42,13 +48,28 @@ ngOnInit(): void {
     name:'informatica II',
     professors:['miguel']
   }]
-
+*/
 }
 
 goCourseRedirection(arg0: number) {
   console.log(arg0);
   this.router.goCourseRedirect();
   
+}
+
+getProfessorOfCourse(idCourse:number){
+  let professors:Professor[]=[];
+
+  this.courseRestService.getProfessorsOfCourse(idCourse).subscribe(
+    (professor:any)=>{
+       
+      professor.forEach((element:Professor) => {
+        professors.push(element)
+      });
+   
+    });
+
+    return professors;
 }
 
 

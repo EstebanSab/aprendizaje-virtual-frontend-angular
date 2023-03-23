@@ -14,8 +14,13 @@ export class HomeRestService {
   
   public getCoursesOfStudent():Observable<any>{
     return  this.http.get(
-      `${this.apiServerUrl}/v1/course/login`)
+      `${this.apiServerUrl}/v1/course/student/courses`)
     }
+
+    public getProfessorsOfCourse(idCourse:number):Observable<any>{
+      return  this.http.get(
+        `${this.apiServerUrl}/v1/professor/course/${idCourse}`)
+      }
 
   public getCoursesOfProfessor():Observable<any>{
     return  this.http.get(
