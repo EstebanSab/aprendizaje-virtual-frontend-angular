@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CourseModel, Professor } from '../../model/CourseModel';
 import { HomeRestService } from '../../services/home-rest.service';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { HomeRoutingModule } from '../../home-routing.module';
 
 @Component({
   selector: 'home-course-list',
@@ -51,11 +52,6 @@ ngOnInit(): void {
 */
 }
 
-goCourseRedirection(arg0: number) {
-  console.log(arg0);
-  this.router.goCourseRedirect();
-  
-}
 
 getProfessorOfCourse(idCourse:number){
   let professors:Professor[]=[];

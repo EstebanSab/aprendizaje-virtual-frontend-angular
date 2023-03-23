@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 import { CourseModel } from '../../model/CourseModel';
+import { TransferDataService } from '../../services/transfer-data.service';
 
 
 @Component({
@@ -13,4 +15,23 @@ export class CoursePreviewComponent {
     name: '',
     professors: []
   }
+
+
+  constructor(private router:AppRoutingModule,
+    private transferData:TransferDataService){}
+
+
+  goCourseRedirection(arg0: number) {
+    console.log(arg0);
+    this.transferData.setCourseId(arg0);
+    this.router.goCourseRedirect();
+    
+  }
+
+
+  goProfessorRedirection(arg0: number) {
+    console.log(arg0);
+    this.router.goCourseRedirect();
+  }
+  
 }

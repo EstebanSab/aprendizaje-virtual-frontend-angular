@@ -13,7 +13,7 @@ export class HomeRoutingModule {
   constructor(private router: Router){}
 
   goCourseRedirect(){
-    this.router.navigate(['/login']);
+    this.router.navigate(['/course']);
   }
   
  }
