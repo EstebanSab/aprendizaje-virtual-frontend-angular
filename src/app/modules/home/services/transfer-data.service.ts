@@ -18,5 +18,5 @@ export class TransferDataService {
 
    getIdCourseSelected$():Observable<number>{
     return this.courseId$.asObservable();
-  }
+  } 
 }
