@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'course-course-content',
@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
 })
 export class CourseContentComponent {
 
-  contentTitle:string = "";
-  contentText:string = "";
+  @Input() contentId:number = 0;
+  @Input() contentText:string = "";
 
   
 

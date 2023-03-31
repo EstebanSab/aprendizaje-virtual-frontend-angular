@@ -1,4 +1,4 @@
 export interface CourseContentModel{
-    title:string;
-    content:undefined[];
+    id:number;
+    content:string;
 }

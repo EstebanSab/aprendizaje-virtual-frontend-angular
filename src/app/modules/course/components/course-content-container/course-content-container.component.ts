@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from '../../services/course.service';
+import { CourseContentModel } from '../../model/CourseContentModel';
 
 @Component({
   selector: 'course-course-content-container',
@@ -8,11 +9,17 @@ import { CourseService } from '../../services/course.service';
 })
 export class CourseContentContainerComponent implements OnInit{
 
+  contentsOfCourse:CourseContentModel[]=[];
 
   constructor(private courseService:CourseService){}
   ngOnInit(): void {
     this.courseService.getContentCourse();
+    
+    this.contentsOfCourse = [];
+
+    this.contentsOfCourse = this.courseService.apiCourseContent(1);
+
   }
 
-num:number[]=[1,2,3,5,6,7,3,4,34,43];
+
 }
