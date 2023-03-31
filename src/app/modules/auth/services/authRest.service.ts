@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { UserCredentials } from '../model/UserCredentials';
 import { enviroment } from 'src/environments/enviroment';
 import { UserRegister } from '../model/UserRegister';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 
 @Injectable({
@@ -15,10 +16,9 @@ export class AuthRestService {
 
   private apiServerUrl=enviroment.apiBaseUrl;
 
-  constructor(private http:HttpClient) { }
-
-
-
+  constructor(private http:HttpClient,
+    private appRoutingModule:AppRoutingModule) { }
+    
   private httpLogin(userCredentials:UserCredentials):Observable<HttpResponse<Object>>{
     return  this.http.post(
       `${this.apiServerUrl}/v1/auth/login`,
@@ -28,6 +28,8 @@ export class AuthRestService {
   
 
   private httpRegister(userRegister:UserRegister):Observable<HttpResponse<Object>>{
+      
+    
       return  this.http.post(
         `${this.apiServerUrl}/v1/auth/register`,
         JSON.stringify(userRegister),
@@ -37,6 +39,8 @@ export class AuthRestService {
 
 
     public loginUserApi(userCredentials:UserCredentials):void{
+    
+
       this.httpLogin(userCredentials).subscribe(
         (response:HttpResponse<any>) =>{
      
@@ -46,6 +50,8 @@ export class AuthRestService {
         const token =bearer?.replace('Bearer ','');
         if (token != null){
             localStorage.setItem('token',token);
+            //redirect to home page
+            this.appRoutingModule.goHomeRedirect();
           }
       })
     }

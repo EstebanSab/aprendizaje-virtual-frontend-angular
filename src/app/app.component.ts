@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @Component({
@@ -8,4 +9,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'plataforma-educativa';
+  
+  constructor(private appRoutingModule:AppRoutingModule){}
+
+  isLogin():boolean{
+    return localStorage.getItem('token')?true:false;
+  }
+
+  closeSesion(){
+    localStorage.removeItem('token');
+    this.appRoutingModule.goLoginRedirect();
+  }
 }
