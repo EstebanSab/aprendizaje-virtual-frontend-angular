@@ -1,9 +1,9 @@
 <div>
     <form action="">
         <div>
-            <label for="Username">Username (document)</label>
-            <input type="number" name="Username" id="Username" placeholder="Username"
-            [(ngModel)]="username">
+            <label for="Username">Username</label>
+            <input type="text" name="Username" id="Username" placeholder="Username"
+            [(ngModel)]="userToRegister.username">
         </div>
 
         
@@ -11,7 +11,7 @@
     <div>
         <label for="password">Password</label>
         <input type="password" name="password" id="password" placeholder="password"
-        [(ngModel)]="password">
+        [(ngModel)]="userToRegister.password">
     </div>
 
 
@@ -20,15 +20,30 @@
     <div>
         <label for="firstname">First Name </label>
         <input type="text" name="firstname" id="firstname" placeholder="firstname"
-        [(ngModel)]="firstname">
+        [(ngModel)]="userToRegister.name">
     </div>
 
     <div>
         <label for="lastname">Last Name </label>
         <input type="text" name="lastname" id="lastname" placeholder="lastname"
-        [(ngModel)]="lastname">
+        [(ngModel)]="userToRegister.lastName">
     </div>
 
+    <div>
+        <label for="lastname">Mail</label>
+        <input type="mail" name="mail" id="mail" placeholder="mail"
+        [(ngModel)]="userToRegister.mail">
+    </div>
+
+
+    <div>
+        <label for="lastname">User Rol</label>
+        <select name="select-role" [(ngModel)]="userToRegister.role">
+            <option [ngValue]="role[1]" *ngFor="let role of roles">
+                {{role[0]}}
+            </option>
+        </select>
+    </div>
 
    <button type="submit" (click)="registerUser()">Register</button>
 

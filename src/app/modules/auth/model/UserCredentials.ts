@@ -1,4 +1,4 @@
 export interface UserCredentials{ 
-        documento:number,
+        username:string,
         password:string
     }

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { UserRegister } from '../../model/UserRegister';
+import { AuthRestService } from '../../services/authRest.service';
+
 
 @Component({
   selector: 'app-register',
@@ -6,14 +9,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  username:number | undefined;
-  password:string="";
-  firstname:string="";
-  lastname:string="";
-  private usuarioLogueado:boolean | undefined;
+
+  roles:string[][]=[["Student","ROLE_STUDENT"],["Professor","ROLE_PROFESSOR"]];
+
+  userToRegister:UserRegister={
+    username:"",
+    password:"",
+    name:"",
+    lastName:"",
+    mail:"",
+    role:""
+  }
   
+
+  constructor(private authRestService:AuthRestService ){}
   
   registerUser(){
-    console.log(this.username," ",this.password)
+    console.log(this.userToRegister);
+    this.authRestService.registerUserApi(this.userToRegister);
   }
 }
