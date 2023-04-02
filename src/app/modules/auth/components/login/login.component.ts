@@ -26,7 +26,7 @@ loginUser(){
 
  this.authRestService.loginUserApi({username:this.username,password:this.password});  
 
- localStorage.setItem("rol",this.rol);
+ localStorage.setItem('rol',this.rol);
 }
 
 

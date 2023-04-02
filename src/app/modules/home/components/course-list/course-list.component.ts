@@ -22,7 +22,7 @@ courses:CourseModel[]= [];
 ngOnInit(): void {
   console.log("init");
   
-  if(localStorage.getItem("rol")=="ROLE_STUDENT"){
+  if(localStorage.getItem('rol')=='ROLE_STUDENT'){
 
    this.courseRestService.getCoursesOfStudent().subscribe(
     (courses)=>{
@@ -36,7 +36,7 @@ ngOnInit(): void {
 
   }
 
-    if(localStorage.getItem("rol")=="ROLE_PROFESSOR"){
+    if(localStorage.getItem('rol')=='ROLE_PROFESSOR'){
 
     this.courseRestService.getCoursesOfProfessor().subscribe(
       (courses)=>{
