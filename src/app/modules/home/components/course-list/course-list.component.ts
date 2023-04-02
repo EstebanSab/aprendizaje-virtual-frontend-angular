@@ -12,8 +12,7 @@ import { HomeRoutingModule } from '../../home-routing.module';
 export class CourseListComponent implements OnInit {
 
 
-  constructor(private courseRestService:HomeRestService,
-    private router:AppRoutingModule){}
+  constructor(private courseRestService:HomeRestService){}
 
 courses:CourseModel[]= [];
 
@@ -22,7 +21,7 @@ courses:CourseModel[]= [];
 ngOnInit(): void {
   console.log("init");
   
-  if(!this.isProfessor()){
+  if(localStorage.getItem("rol")?.includes("student")){
 
    this.courseRestService.getCoursesOfStudent().subscribe(
     (courses)=>{
@@ -36,7 +35,7 @@ ngOnInit(): void {
 
   }
 
-    if(this.isProfessor()){
+    if(localStorage.getItem("rol")?.includes("professor")){
 
     this.courseRestService.getCoursesOfProfessor().subscribe(
       (courses)=>{
@@ -67,16 +66,6 @@ getProfessorOfCourse(idCourse:number){
 
     return professors;
 }
-
-
-isProfessor():boolean{
-  if(localStorage.getItem("rol")=="p"){
-    return true
-  }
-  return false;
-}
-
-
 
 }
 

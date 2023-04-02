@@ -17,21 +17,16 @@ export class CourseContentContainerComponent implements OnInit{
   constructor(private courseService:CourseService){}
   
   ngOnInit(): void {
-    if(this.isProfessor()){
+    if(localStorage.getItem("rol")?.includes("professor")){
       this.contentsOfCourse = this.courseService.getContentOfCourseAsProfessor();
     }
 
-    if(!this.isProfessor()){
+    if(localStorage.getItem("rol")?.includes("student")){
       this.contentsOfCourse = this.courseService.getContentOfCourseAsStudent();
     }
     
     
   }
 
-  isProfessor():boolean{
-    if(localStorage.getItem("rol")=="p"){
-      return true
-    }
-    return false;
-  }
+
 }

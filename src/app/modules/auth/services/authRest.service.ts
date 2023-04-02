@@ -40,7 +40,6 @@ export class AuthRestService {
 
     public loginUserApi(userCredentials:UserCredentials):void{
     
-
       this.httpLogin(userCredentials).subscribe(
         (response:HttpResponse<any>) =>{
      
@@ -50,8 +49,9 @@ export class AuthRestService {
         const token =bearer?.replace('Bearer ','');
         if (token != null){
             localStorage.setItem('token',token);
-            //redirect to home page
-            this.appRoutingModule.goHomeRedirect();
+            //save data of user in local storage
+            //and redirect to home
+            this.saveUserData();
           }
       })
     }
@@ -61,4 +61,26 @@ export class AuthRestService {
     public registerUserApi(userRegister:UserRegister):void{
       this.httpRegister(userRegister).subscribe()
     }
+
+
+
+
+    private httpGetUser():Observable<any>{
+      return  this.http.get(
+        `${this.apiServerUrl}/v1/userdata/`);
+      }
+
+  public saveUserData(){
+   this.httpGetUser().subscribe(
+      (user)=>{
+        let rol= (user.role.split("_")[1].toLowerCase())
+        
+        localStorage.setItem("rol",rol)
+        localStorage.setItem("user",JSON.stringify(user));
+
+        //redirect to home page
+        this.appRoutingModule.goHomeRedirect();
+      }
+    )
+  }
 }

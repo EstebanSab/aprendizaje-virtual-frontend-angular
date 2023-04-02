@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class CourseViewComponent {
   isProfessor():boolean{
-    if(localStorage.getItem("rol")=="p"){
+    if(localStorage.getItem("rol")?.includes("professor")){
       return true
     }
     return false;

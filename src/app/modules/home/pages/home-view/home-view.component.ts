@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HomeRestService } from '../../services/home-rest.service';
 
 @Component({
   selector: 'home-home-view',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-view.component.css']
 })
 export class HomeViewComponent {
-
+ 
 }

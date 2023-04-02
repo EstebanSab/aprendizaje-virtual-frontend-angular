@@ -9,17 +9,28 @@ import { AppRoutingModule } from './app-routing.module';
 })
 export class AppComponent {
   title = 'plataforma-educativa';
-  
+
+  userData = {
+    
+
+  }
+
+
   constructor(private appRoutingModule:AppRoutingModule){}
+
+
 
   isLogin():boolean{
     return localStorage.getItem('token')?true:false;
   }
 
+  
+
   closeSesion(){
     localStorage.removeItem('token');
-    localStorage.removeItem('courseId');
+    localStorage.removeItem('user');
     localStorage.removeItem('rol');
+    localStorage.removeItem('courseId');
     this.appRoutingModule.goLoginRedirect();
   }
 }
