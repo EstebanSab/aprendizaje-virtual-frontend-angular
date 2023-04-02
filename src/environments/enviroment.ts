@@ -1,4 +1,4 @@
 export const enviroment = {
     production:false,
-    apiBaseUrl:'http://localhost:8080'
+    apiBaseUrl:'https://campus-production-c39f.up.railway.app'
 };

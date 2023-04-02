@@ -9,15 +9,16 @@ import { CourseContentModel } from '../../model/CourseContentModel';
 })
 export class CourseContentContainerComponent implements OnInit{
 
+  courseSelectedId:number=-1;
+
+
   contentsOfCourse:CourseContentModel[]=[];
 
   constructor(private courseService:CourseService){}
   ngOnInit(): void {
-    this.courseService.getContentCourse();
-    
-    this.contentsOfCourse = [];
+    console.log("init course content")
 
-    this.contentsOfCourse = this.courseService.apiCourseContent(1);
+    this.contentsOfCourse = this.courseService.getContentOfCourseAsStudent();
 
   }
 

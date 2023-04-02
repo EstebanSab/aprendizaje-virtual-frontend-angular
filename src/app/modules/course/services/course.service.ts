@@ -11,50 +11,44 @@ import { CourseContentModel } from '../model/CourseContentModel';
 
 export class CourseService {
 
-  private apiServerUrl=enviroment.apiBaseUrl;
-
-  
-
-  courseSelected:number =0;
-  constructor(private transferData:TransferDataService,
-    private http:HttpClient) { }
+  private apiServerUrl = enviroment.apiBaseUrl;
 
 
-  
-  getContentCourse(){
- 
-  this.transferData.getIdCourseSelected$().subscribe(
-  (courseId:number)=>{
-    this.courseSelected =  courseId;
-    console.log("course number is",courseId);
-  }
-  );
-}
 
 
-private httpCourseContent(idCourse:number):Observable<any>{
-  return  this.http.get(
-    `${this.apiServerUrl}/v1/content/course/${idCourse}`);
+  constructor(private transferData: TransferDataService,
+    private http: HttpClient) { }
+
+
+
+  private httpCourseContent(idCourse: number): Observable<any> {
+    return this.http.get(
+      `${this.apiServerUrl}/v1/content/course/${idCourse}/student`);
   }
 
 
-public apiCourseContent(idCourse:number):CourseContentModel[]{
- let contentOfCourse:CourseContentModel[]=[];
+  public getContentOfCourseAsStudent(): CourseContentModel[] {
+    let contentOfCourse: CourseContentModel[] = [];
+    
+    let courseId= this.transferData.getIdCourseSelectedNumber();
+        
+    this.httpCourseContent(courseId).subscribe(
+      (response: any[]) => {
+
+        response.forEach(element => {
+          contentOfCourse.push({
+            id: element.id,
+            content: element.content
+          })
+        });
+
+      }
+
+    )
 
 
-  this.httpCourseContent(idCourse).subscribe(
-    (contents:any[])=>{
 
-      contents.forEach(content => {
-        contentOfCourse.push({
-          id:content.id,
-          content:content.content
-        })
-      });
-       
-    }
-
-  )
-  return contentOfCourse
-}
+  //});
+    return contentOfCourse
+  }
 }
