@@ -1,9 +1,13 @@
-<div>
-    <form action="">
+<div class="register-container">
+
+    <div *ngIf="!validInputs">
+        invalid inputs
+    </div>
+    <form action="" (ngSubmit)="registerUser()">
         <div>
             <label for="Username">Username</label>
-            <input type="text" name="Username" id="Username" placeholder="Username"
-            [(ngModel)]="userToRegister.username">
+            <input type="text" name="Username" id="Username" placeholder="Username" 
+            required minlength="5" [(ngModel)]="userToRegister.username">
         </div>
 
         
@@ -11,7 +15,7 @@
     <div>
         <label for="password">Password</label>
         <input type="password" name="password" id="password" placeholder="password"
-        [(ngModel)]="userToRegister.password">
+        required minlength="5" [(ngModel)]="userToRegister.password">
     </div>
 
 
@@ -20,32 +24,35 @@
     <div>
         <label for="firstname">First Name </label>
         <input type="text" name="firstname" id="firstname" placeholder="firstname"
-        [(ngModel)]="userToRegister.name">
+        required minlength="4" [(ngModel)]="userToRegister.name">
     </div>
 
     <div>
         <label for="lastname">Last Name </label>
         <input type="text" name="lastname" id="lastname" placeholder="lastname"
-        [(ngModel)]="userToRegister.lastName">
+        required minlength="4" [(ngModel)]="userToRegister.lastName">
     </div>
 
     <div>
-        <label for="lastname">Mail</label>
+        <label for="mail">Mail</label>
         <input type="mail" name="mail" id="mail" placeholder="mail"
-        [(ngModel)]="userToRegister.mail">
+        required minlength="4" email="true"  [(ngModel)]="userToRegister.mail">
     </div>
 
 
     <div>
-        <label for="lastname">User Rol</label>
+        <label for="rol">User Rol</label>
         <select name="select-role" [(ngModel)]="userToRegister.role">
-            <option [ngValue]="role[1]" *ngFor="let role of roles">
-                {{role[0]}}
+            <option selected="selected" [ngValue]="roles[0][1]" >
+                {{roles[0][0]}}
+            </option>
+            <option [ngValue]="roles[1][1]" >
+                {{roles[1][0]}}
             </option>
         </select>
     </div>
 
-   <button type="submit" (click)="registerUser()">Register</button>
+   <button type="submit" >Register</button>
 
     </form>
 </div>

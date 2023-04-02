@@ -5,7 +5,6 @@
         <li><a routerLink="/home" routerLinkActive="active" >Home</a></li>
         <li *ngIf="!isLogin()"><a routerLink="/login" routerLinkActive="active">Login</a></li>
         <li *ngIf="isLogin()"><div (click)="closeSesion()">close sesion</div></li>
-        <li><a routerLink="/course" routerLinkActive="active">Course</a></li>
       </ul>
     </nav>
     <div><router-outlet></router-outlet></div>

@@ -18,6 +18,8 @@ export class AppComponent {
 
   closeSesion(){
     localStorage.removeItem('token');
+    localStorage.removeItem('courseId');
+    localStorage.removeItem('rol');
     this.appRoutingModule.goLoginRedirect();
   }
 }

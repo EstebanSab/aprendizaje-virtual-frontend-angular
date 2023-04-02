@@ -1,0 +1,27 @@
+.register-container{
+
+  font-size: 20px;
+}
+
+.register-container label{
+display: block;
+}
+
+.register-container input{
+  height: 40px;
+  width: 250px;
+  font-size: 30px;
+  }
+  .register-container select{
+    height: 40px;
+    width: 250px;
+    font-size: 30px;
+    }
+
+  .register-container button{
+    margin-top: 10px;
+    height:30px;
+    width: 100px;
+    font-size: 20px;
+    border-radius: 10px;
+    }

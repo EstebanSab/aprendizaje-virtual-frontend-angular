@@ -1,9 +1,9 @@
 <div class="course-container">
-    <h2 (click)="goCourseRedirection(course.id)" class="course-name">{{course.name}}</h2>
+    <h2 class="course-name" (click)="goCourseRedirection(course.id)" class="course-name">{{course.name}}</h2>
     
     <ng-template class="course-profesors" ngFor let-profesor [ngForOf]="course.professors">
         <li *ngIf="true" >
-           <p (click)="goProfessorRedirection(profesor.id)" class="course-profesor-name">{{profesor.name}}</p>
+           <p (click)="goProfessorRedirection(profesor.id)" class="course-profesor-name">Professor: {{profesor.name}}</p>
         </li>
     </ng-template>   
 </div>

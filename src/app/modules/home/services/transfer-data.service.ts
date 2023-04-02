@@ -5,13 +5,9 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class TransferDataService {
-  private courseIdnumber:number=0;
-
-  getIdCourseSelectedNumber():number{
-    return this.courseIdnumber;
-  }
+  
 
   setCourseIdNumber(idCourse:number){
-    this.courseIdnumber=idCourse;
+    localStorage.setItem("courseId",""+idCourse)
    }
 }

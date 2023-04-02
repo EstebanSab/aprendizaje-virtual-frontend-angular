@@ -1,13 +1,24 @@
 .container{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: 90vh;
+
 }
 
-.login{
+.login-container{
+    border-right: 1px solid white;
     text-align: center;
 }
 
-.register{
+.login-item{
+    margin-top: 10vh;
+}
+
+.register-container{
+    border-left: 1px solid white;
     text-align: center;
+}
+
+.register-item{
+    margin-top: 10vh;
 }

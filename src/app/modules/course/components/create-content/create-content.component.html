@@ -1,11 +1,12 @@
-<form action="">
+<div class="create-content-container">
+  <form action="">
+    <div class="create-content-item">
+      <label for="password">Content</label>
+      <textarea cols="20" rows="10" type="text" name="Content" id="Content" placeholder="Content"
+      [(ngModel)]="content"></textarea>
+  </div>
 
-<div>
-  <label for="password">Content</label>
-  <input type="text" name="Content" id="Content" placeholder="Content"
-  [(ngModel)]="content">
+  <button type="submit" (click)="saveContent()">save content</button>
+
+  </form>
 </div>
-
-<button type="submit" (click)="saveContent()">save content</button>
-
-</form>

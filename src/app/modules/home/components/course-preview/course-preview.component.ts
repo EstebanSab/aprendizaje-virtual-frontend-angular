@@ -30,8 +30,8 @@ export class CoursePreviewComponent {
 
 
   goProfessorRedirection(arg0: number) {
-    console.log(arg0);
-    this.router.goCourseRedirect();
+
+    alert("professor id"+arg0);
   }
   
 }

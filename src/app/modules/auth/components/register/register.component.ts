@@ -10,6 +10,9 @@ import { AuthRestService } from '../../services/authRest.service';
 })
 export class RegisterComponent {
 
+  validInputs:boolean=true;
+
+
   roles:string[][]=[["Student","ROLE_STUDENT"],["Professor","ROLE_PROFESSOR"]];
 
   userToRegister:UserRegister={
@@ -18,7 +21,7 @@ export class RegisterComponent {
     name:"",
     lastName:"",
     mail:"",
-    role:""
+    role:this.roles[0][1]
   }
   
 
@@ -26,6 +29,7 @@ export class RegisterComponent {
   
   registerUser(){
     console.log(this.userToRegister);
+
     this.authRestService.registerUserApi(this.userToRegister);
   }
 }

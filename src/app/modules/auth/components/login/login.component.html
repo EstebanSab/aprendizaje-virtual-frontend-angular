@@ -1,23 +1,18 @@
-<div>
+<div class="login-container">
     <form action="">
-        <div>
-        <label for="Username">Username </label>
-        <input type="text" name="Username" id="Usernamelg" placeholder="Username"
-        [(ngModel)]="username">
-    </div>
+    
+        <div class="login-username">
+            <label for="Username">Username </label>
+            <input type="text" name="Username" id="Usernamelg" placeholder="..."
+            [(ngModel)]="username">
+        </div>
 
-    <div>
+    <div class="login-password">
         <label for="password">Password</label>
-        <input type="password" name="password" id="passwordlg" placeholder="password"
+        <input type="password" name="password" id="passwordlg" placeholder="..."
         [(ngModel)]="password">
     </div>
 
-
-    <div>
-        <label for="rol">rol</label>
-        <input type="rol" name="rol" id="rol" placeholder="rol"
-        [(ngModel)]="rol">
-    </div>
 
    <button type="submit" (click)="loginUser()">Log in</button>
 

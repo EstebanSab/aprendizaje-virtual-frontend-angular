@@ -19,6 +19,11 @@ export class CourseService {
   constructor(private transferData: TransferDataService,
     private http: HttpClient) { }
 
+   private getIdCourseSelectedNumber():number{
+    let courseId =localStorage.getItem("courseId") || "0";
+   return parseInt(courseId);
+   }
+
 
 
   private httpCourseContentAsStudent(idCourse: number): Observable<any> {
@@ -30,7 +35,7 @@ export class CourseService {
   public getContentOfCourseAsStudent(): CourseContentModel[] {
     let contentOfCourse: CourseContentModel[] = [];
     
-    let courseId= this.transferData.getIdCourseSelectedNumber();
+    let courseId= this.getIdCourseSelectedNumber();
         
     this.httpCourseContentAsStudent(courseId).subscribe(
       (response: any[]) => {
@@ -60,7 +65,7 @@ export class CourseService {
   public getContentOfCourseAsProfessor(): CourseContentModel[] {
     let contentOfCourse: CourseContentModel[] = [];
     
-    let courseId= this.transferData.getIdCourseSelectedNumber();
+    let courseId= this.getIdCourseSelectedNumber();
         
     this.httpCourseContentAsProfessor(courseId).subscribe(
       (response: any[]) => {
@@ -82,7 +87,7 @@ export class CourseService {
 
   
   private httpPostContent(content:string):Observable<any>{
-    let courseId= this.transferData.getIdCourseSelectedNumber();
+    let courseId= this.getIdCourseSelectedNumber();
 
     return  this.http.post(
       `${this.apiServerUrl}/v1/content/course/${courseId}`,
