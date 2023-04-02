@@ -23,10 +23,10 @@ constructor(private authRestService:AuthRestService,
 
 loginUser(){
   let logueado:boolean = false;
-
+  localStorage.setItem('rol',this.rol);
  this.authRestService.loginUserApi({username:this.username,password:this.password});  
 
- localStorage.setItem('rol',this.rol);
+ 
 }
 
 
