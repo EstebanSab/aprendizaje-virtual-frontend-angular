@@ -21,7 +21,7 @@ export class CourseService {
 
 
 
-  private httpCourseContent(idCourse: number): Observable<any> {
+  private httpCourseContentAsStudent(idCourse: number): Observable<any> {
     return this.http.get(
       `${this.apiServerUrl}/v1/content/course/${idCourse}/student`);
   }
@@ -32,7 +32,7 @@ export class CourseService {
     
     let courseId= this.transferData.getIdCourseSelectedNumber();
         
-    this.httpCourseContent(courseId).subscribe(
+    this.httpCourseContentAsStudent(courseId).subscribe(
       (response: any[]) => {
 
         response.forEach(element => {
@@ -45,10 +45,53 @@ export class CourseService {
       }
 
     )
-
-
-
-  //});
     return contentOfCourse
   }
+
+
+
+
+  private httpCourseContentAsProfessor(idCourse: number): Observable<any> {
+    return this.http.get(
+      `${this.apiServerUrl}/v1/content/course/${idCourse}/professor`);
+  }
+
+
+  public getContentOfCourseAsProfessor(): CourseContentModel[] {
+    let contentOfCourse: CourseContentModel[] = [];
+    
+    let courseId= this.transferData.getIdCourseSelectedNumber();
+        
+    this.httpCourseContentAsProfessor(courseId).subscribe(
+      (response: any[]) => {
+
+        response.forEach(element => {
+          contentOfCourse.push({
+            id: element.id,
+            content: element.content
+          })
+        });
+
+      }
+
+    )
+    return contentOfCourse
+  }
+
+
+
+  
+  private httpPostContent(content:string):Observable<any>{
+    let courseId= this.transferData.getIdCourseSelectedNumber();
+
+    return  this.http.post(
+      `${this.apiServerUrl}/v1/content/course/${courseId}`,
+      JSON.stringify({id:0,content:content}),
+      {observe:'response'});
+    }
+
+
+    public apiPostContent(content:string):void{
+      this.httpPostContent(content).subscribe();
+    }
 }

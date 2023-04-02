@@ -30,26 +30,18 @@ ngOnInit(): void {
 
         this.courses.push(course);
       });
+    })
 
-    }
+    this.courseRestService.getCoursesOfProfessor().subscribe(
+      (courses)=>{
+        courses.forEach((course:CourseModel) => {
   
-  )
+          course.professors=this.getProfessorOfCourse(course.id);
+  
+          this.courses.push(course);
+        });
+      })
 
-  /*this.courses =[{
-    id:1,
-    name:'informatica II',
-    professors:[{}]
-  },{
-    id:2,
-    name:'poo II',
-    professors:['tiago','marcela']
-  },
-  {
-    id:3,
-    name:'informatica II',
-    professors:['miguel']
-  }]
-*/
 }
 
 

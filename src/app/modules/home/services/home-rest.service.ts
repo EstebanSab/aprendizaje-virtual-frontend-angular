@@ -24,7 +24,7 @@ export class HomeRestService {
 
   public getCoursesOfProfessor():Observable<any>{
     return  this.http.get(
-      `${this.apiServerUrl}/v1/course/login`)
+      `${this.apiServerUrl}/v1/course/professor/courses`)
     }
 
 
