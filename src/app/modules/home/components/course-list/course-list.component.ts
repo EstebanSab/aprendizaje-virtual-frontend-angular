@@ -22,6 +22,8 @@ courses:CourseModel[]= [];
 ngOnInit(): void {
   console.log("init");
   
+  if(localStorage.getItem("rol")=="ROLE_STUDENT"){
+
    this.courseRestService.getCoursesOfStudent().subscribe(
     (courses)=>{
       courses.forEach((course:CourseModel) => {
@@ -32,6 +34,10 @@ ngOnInit(): void {
       });
     })
 
+  }
+
+    if(localStorage.getItem("rol")=="ROLE_PROFESSOR"){
+
     this.courseRestService.getCoursesOfProfessor().subscribe(
       (courses)=>{
         courses.forEach((course:CourseModel) => {
@@ -41,6 +47,8 @@ ngOnInit(): void {
           this.courses.push(course);
         });
       })
+
+    }
 
 }
 

@@ -9,12 +9,12 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent {
 
 
 username:string ="";
 password:string="";
-private usuarioLogueado:boolean | undefined;
+rol:string="";
 
 
 constructor(private authRestService:AuthRestService,
@@ -26,13 +26,10 @@ loginUser(){
 
  this.authRestService.loginUserApi({username:this.username,password:this.password});  
 
-}
-getStudent(){
-
+ localStorage.setItem("rol",this.rol);
 }
 
-ngOnInit(){
-  
-}
+
+
 
 }

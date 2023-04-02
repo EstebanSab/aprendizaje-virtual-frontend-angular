@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./course-view.component.css']
 })
 export class CourseViewComponent {
-
+  isProfessor():boolean{
+    if(localStorage.getItem("rol")=="ROL_PROFESSOR"){
+      return true
+    }
+    return false;
+  }
 }

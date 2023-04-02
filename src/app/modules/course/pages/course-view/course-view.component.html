@@ -1,5 +1,5 @@
 <div class="page-layout">
-    <div class="left-menu">
+    <div *ngIf="isProfessor()" class="left-menu">
         <app-create-content></app-create-content>
     </div>
     <div class="principal-content">
