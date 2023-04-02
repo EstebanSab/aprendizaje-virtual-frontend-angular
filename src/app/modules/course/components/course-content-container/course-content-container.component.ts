@@ -17,6 +17,7 @@ export class CourseContentContainerComponent implements OnInit{
   constructor(private courseService:CourseService){}
   
   ngOnInit(): void {
+    this.contentsOfCourse = this.courseService.getContentOfCourseAsProfessor();
     this.contentsOfCourse = this.courseService.getContentOfCourseAsStudent();
   }
 
