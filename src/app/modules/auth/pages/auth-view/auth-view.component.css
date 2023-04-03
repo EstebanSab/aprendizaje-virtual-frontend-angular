@@ -1,7 +1,15 @@
-.container{
+.pc-layout{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 90vh;
+
+}
+
+
+.phone-layout{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
 
 }
 

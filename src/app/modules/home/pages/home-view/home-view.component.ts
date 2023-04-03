@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeRestService } from '../../services/home-rest.service';
 import {Breakpoints,BreakpointObserver} from '@angular/cdk/layout';
 
 
@@ -9,6 +8,11 @@ import {Breakpoints,BreakpointObserver} from '@angular/cdk/layout';
   styleUrls: ['./home-view.component.css']
 })
 export class HomeViewComponent implements OnInit {
+  isPhonePortrait = false;
+  isWebPortrait = false;
+
+
+
 
   constructor(private breakpointObserver: BreakpointObserver) {
   
@@ -16,14 +20,27 @@ export class HomeViewComponent implements OnInit {
   
   ngOnInit() {
   
-    this.breakpointObserver.observe(Breakpoints.HandsetLandscape)
-      .subscribe(result => {
+    this.breakpointObserver.observe(
+      [Breakpoints.XSmall	
+      ,Breakpoints.Small,
+      Breakpoints.Medium]
+      ).subscribe((result) => {
+        this.isPhonePortrait = false;
+        this.isWebPortrait = false;
 
-        if (result.matches) {
-          console.log("screens matches HandsetLandscape");
+        const breakpoints = result.breakpoints
+        console.log(result)
+
+         if (breakpoints[Breakpoints.XSmall	]) {
+            this.isPhonePortrait = true;
+          }
+         if (breakpoints[Breakpoints.Small]) {
+        this.isWebPortrait =true ;
+          }
+
+      if (breakpoints[Breakpoints.Medium]) {
+        this.isWebPortrait =true ;
         }
-
-        console.log(result.matches)
   });
 }
 

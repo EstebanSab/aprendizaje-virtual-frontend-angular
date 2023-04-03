@@ -1,10 +1,22 @@
-<div class="layout-container">
-    <div class="left-menu">
-      <input type="date" id="fecha"/>
+<div  [ngClass]="{'phone-layout': isPhonePortrait,'pc-layout': isWebPortrait}">
+    <div class="left-menu" [ngClass]="{'left-menu-phone-layout': isPhonePortrait}">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+      Officiis, esse doloremque? Quam veritatis illum sed dolorem adipisci,
+       facere corrupti incidunt esse nobis provident.
+       Eos molestiae excepturi assumenda eligendi culpa reiciendis.
+       orem ipsum dolor sit amet consectetur adipisicing elit. 
+      Officiis, esse doloremque? Quam veritatis illum sed dolorem adipisci,
+       facere corrupti incidunt esse nobis provident.
+       Eos molestiae excepturi assumenda eligendi culpa reiciendis.
     </div>
-    <div class="principal-content">
+    <div class="principal-content" [ngClass]="{'principal-phone-layout': isPhonePortrait}">
         <home-course-list></home-course-list>
     </div>
-    <div class="right-menu">a</div>
+    <div class="right-menu" [ngClass]="{'right-menu-phone-layout': isPhonePortrait}">
+      orem ipsum dolor sit amet consectetur adipisicing elit. 
+      Officiis, esse doloremque? Quam veritatis illum sed dolorem adipisci,
+       facere corrupti incidunt esse nobis provident.
+       Eos molestiae excepturi assumenda eligendi culpa reiciendis.
+    </div>
 </div>
 

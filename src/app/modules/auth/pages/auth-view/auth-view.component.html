@@ -1,4 +1,4 @@
-<div class="container">
+<div [ngClass]="{'phone-layout': isPhonePortrait,'pc-layout': isWebPortrait}">
     <div class="login-container">
         <div class="login-item">
             <app-login></app-login>
