@@ -5,7 +5,7 @@ import { CoursePreviewComponent } from './components/course-preview/course-previ
 import { HomeViewComponent } from './pages/home-view/home-view.component';
 import { HttpClientModule } from '@angular/common/http';
 
-
+import {LayoutModule} from '@angular/cdk/layout';
 
 
 @NgModule({
@@ -16,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    LayoutModule
   ],
   exports:[
     HomeViewComponent
