@@ -1,9 +1,14 @@
-<div class="page-layout">
-    <div *ngIf="isProfessor()" class="left-menu">
-        <app-create-content></app-create-content>
+<div [ngClass]="{'phone-layout': isPhonePortrait,'pc-layout': isWebPortrait}">
+    <div class="left-menu" [ngClass]="{'left-menu-phone':isPhonePortrait}">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+        Porro, saepe commodi explicabo voluptas voluptatibus sit voluptates similique omnis. 
+        Et ipsam nobis magni minima corporis sapiente eligendi assumenda dolore quibusdam fuga.
     </div>
-    <div class="principal-content">
+    <div class="principal-content" [ngClass]="{'principal-content-phone':isPhonePortrait}">
+        <app-create-content *ngIf="isProfessor()"></app-create-content>
         <course-course-content-container></course-course-content-container>
     </div>
-    <div class="right-menu">a</div>
+    <div class="right-menu" [ngClass]="{'right-menu-phone':isPhonePortrait}"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+        Porro, saepe commodi explicabo voluptas voluptatibus sit voluptates similique omnis. 
+        Et ipsam nobis magni minima corporis sapiente eligendi assumenda dolore quibusdam fuga.</div>
 </div>

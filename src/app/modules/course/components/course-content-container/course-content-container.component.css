@@ -1,7 +1,8 @@
 .contents-container{
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 100px;
+    grid-template-rows: minmax(50px,auto) ;
+    border: 2px solid white;
 }
 
 .contents-item{

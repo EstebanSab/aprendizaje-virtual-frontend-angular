@@ -21,26 +21,24 @@ export class HomeViewComponent implements OnInit {
   ngOnInit() {
   
     this.breakpointObserver.observe(
-      [Breakpoints.XSmall	
+      [Breakpoints.XSmall
       ,Breakpoints.Small,
-      Breakpoints.Medium]
+      Breakpoints.Medium,
+      Breakpoints.Large]
       ).subscribe((result) => {
         this.isPhonePortrait = false;
         this.isWebPortrait = false;
 
         const breakpoints = result.breakpoints
-        console.log(result)
+       
 
-         if (breakpoints[Breakpoints.XSmall	]) {
+         if (breakpoints[Breakpoints.XSmall]) {
             this.isPhonePortrait = true;
           }
-         if (breakpoints[Breakpoints.Small]) {
-        this.isWebPortrait =true ;
-          }
 
-      if (breakpoints[Breakpoints.Medium]) {
+         if (breakpoints[Breakpoints.Small] || breakpoints[Breakpoints.Medium] ||breakpoints[Breakpoints.Large]) {
         this.isWebPortrait =true ;
-        }
+         }
   });
 }
 

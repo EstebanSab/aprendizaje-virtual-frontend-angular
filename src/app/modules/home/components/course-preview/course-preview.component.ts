@@ -22,7 +22,6 @@ export class CoursePreviewComponent {
 
 
   goCourseRedirection(arg0: number) {
-    console.log(arg0);
     this.transferData.setCourseIdNumber(arg0);
     this.router.goCourseRedirect();
     

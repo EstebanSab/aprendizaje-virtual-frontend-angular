@@ -19,8 +19,6 @@ courses:CourseModel[]= [];
 
 
 ngOnInit(): void {
-  console.log("init");
-  
   if(localStorage.getItem("rol")?.includes("student")){
 
    this.courseRestService.getCoursesOfStudent().subscribe(
