@@ -103,9 +103,10 @@ export class CourseService {
 
 
     private httpPutContent(courseContent:CourseContentModel):Observable<any>{
-      
+      let courseId= this.getIdCourseSelectedNumber();
+
       return this.http.put(
-        `${this.apiServerUrl}/v1/content/course/${courseContent.id}`,
+        `${this.apiServerUrl}/v1/content/course/${courseId}`,
         JSON.stringify(courseContent),
         {observe:'response'});
       }
