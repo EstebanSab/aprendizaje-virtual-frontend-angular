@@ -99,4 +99,20 @@ export class CourseService {
     public apiPostContent(content:string):void{
       this.httpPostContent(content).subscribe();
     }
+
+
+
+    private httpPutContent(courseContent:CourseContentModel):Observable<any>{
+      
+      return this.http.put(
+        `${this.apiServerUrl}/v1/content/course/${courseContent.id}`,
+        JSON.stringify(courseContent),
+        {observe:'response'});
+      }
+
+
+      public apiPutContent(courseContent:CourseContentModel):void{
+        this.httpPutContent(courseContent).subscribe();
+      }
+
 }

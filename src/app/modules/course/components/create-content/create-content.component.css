@@ -1,5 +1,14 @@
-.create-content-item input{
-  text-align: start;
-  width: 500px;;
-  height: 100px;
+.create-content-container{
+  max-width: 550px;
+  min-width: 375px;
+  height: 140px;
+  border: 2px solid rgb(214, 34, 18);
+}
+
+
+.create-content-item textarea{
+  width: 98%;
+  height: 80px;
+  
+  resize: none;
 }

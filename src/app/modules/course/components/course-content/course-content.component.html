@@ -1,4 +1,15 @@
-<div>
-    <div>{{contentId}}</div>
-    <div>{{contentText}}</div>
+<div class="content-container">
+    <button *ngIf="isProfessor()" (click)="editText()">Edit</button>
+    
+    <div class="content-item-container" *ngIf="!editMode">
+        <div>{{contentId}}</div>
+        <div>{{contentText}}</div>
+    </div>
+
+    <div class="content-item-edit" *ngIf="editMode">
+        <textarea  type="text" name="Content" id="Content" placeholder="Content"
+              [(ngModel)]="contentModified"></textarea>
+          <button type="submit" (click)="saveContent(contentId)">save content</button>
+    </div>
+    
 </div>

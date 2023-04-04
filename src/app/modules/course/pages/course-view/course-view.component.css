@@ -1,5 +1,26 @@
 .pc-layout{
 display: grid;
-grid-template-columns: 150px auto 150px;
+grid-template-columns: minmax(175px,275px) minmax(375px,550px) minmax(175px,275px);
+gap: 10px;
 grid-template-rows: auto;
+}
+
+
+.phone-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-menu-phone{
+  order: 3;
+}
+
+.principal-content-phone{
+    order: 1;
+    margin-bottom: 10px;
+}
+
+.right-menu-phone{
+  order: 2;
+  margin-bottom: 10px;
 }

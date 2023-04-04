@@ -1,0 +1,13 @@
+.content-item-edit{
+  width: 100%;
+  height: 100%;
+}
+
+.content-item-edit textarea{
+  width: 98%;
+  min-height: 50px;
+  max-height: auto;
+  resize: none;
+}
+
+

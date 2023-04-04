@@ -2,8 +2,8 @@
   <form action=""> 
     <div class="create-content-item">
       <label for="password">Content</label>
-      <input  type="text" name="Content" id="Content" placeholder="Content"
-      [(ngModel)]="content"/>
+      <textarea  type="text" name="Content" id="Content" placeholder="Content"
+      [(ngModel)]="content"></textarea>
   </div>
 
   <button type="submit" (click)="saveContent()">save content</button>
