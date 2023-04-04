@@ -46,7 +46,8 @@ export class CourseService {
             content: element.content
           })
         });
-
+        
+        contentOfCourse.sort((a,b)=>{return a.id-b.id})
       }
 
     )
@@ -68,7 +69,7 @@ export class CourseService {
     let courseId= this.getIdCourseSelectedNumber();
         
     this.httpCourseContentAsProfessor(courseId).subscribe(
-      (response: any[]) => {
+      (response: CourseContentModel[]) => {
 
         response.forEach(element => {
           contentOfCourse.push({
@@ -77,10 +78,12 @@ export class CourseService {
           })
         });
 
+        contentOfCourse.sort((a,b)=>{return a.id-b.id})
+
       }
 
     )
-    return contentOfCourse
+    return contentOfCourse;
   }
 
 
@@ -102,7 +105,7 @@ export class CourseService {
 
 
 
-    private httpPutContent(courseContent:CourseContentModel):Observable<any>{
+    public httpPutContent(courseContent:CourseContentModel):Observable<any>{
       let courseId= this.getIdCourseSelectedNumber();
 
       return this.http.put(
@@ -112,8 +115,6 @@ export class CourseService {
       }
 
 
-      public apiPutContent(courseContent:CourseContentModel):void{
-        this.httpPutContent(courseContent).subscribe();
-      }
+     
 
 }

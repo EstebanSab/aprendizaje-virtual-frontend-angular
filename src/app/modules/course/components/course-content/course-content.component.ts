@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CourseService } from '../../services/course.service';
 import { Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'course-course-content',
@@ -9,16 +10,16 @@ import { Output, EventEmitter } from '@angular/core';
 })
 export class CourseContentComponent {
 
-  constructor(private courseService:CourseService){}
-  
+  constructor(private courseService:CourseService,private router:Router){}
+
   @Input() contentId:number = 0;
   @Input() contentText:string = "";
 
   editMode=false;
   contentModified = "";
 
-  @Output() hasToReload= new EventEmitter<boolean>();
-
+  //@Output() hasToReload= new EventEmitter<boolean>();
+  //this.hasToReload.emit(true);
 
   isProfessor():boolean{
     if(localStorage.getItem("rol")?.includes("professor")){
@@ -33,11 +34,26 @@ export class CourseContentComponent {
   }
 
   saveContent(contentId:number){
-    this.courseService.apiPutContent(
+    this.courseService.httpPutContent(
       {
       id:contentId,
       content:this.contentModified
-    });
-    this.hasToReload.emit(true);
+    }).subscribe(
+    () =>{
+      this.reloadComponent(true);
+     });
+    
   }
+
+
+ 
+  reloadComponent(reloadMe:boolean,urlOfComponentToReload ?:string){
+    const url = reloadMe ? this.router.url : urlOfComponentToReload;
+
+    this.router.navigateByUrl('/',{skipLocationChange:true}).then(
+      ()=>{this.router.navigate([`/${url}`])}
+    )
+  }
+
+   
 }

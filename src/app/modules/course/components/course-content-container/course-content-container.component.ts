@@ -12,7 +12,6 @@ export class CourseContentContainerComponent implements OnInit{
 
   courseSelectedId:number=-1;
 
-
   contentsOfCourse:CourseContentModel[]=[];
 
   constructor(private courseService:CourseService,private router:Router){}
@@ -25,7 +24,7 @@ export class CourseContentContainerComponent implements OnInit{
     if(localStorage.getItem("rol")?.includes("student")){
       this.contentsOfCourse = this.courseService.getContentOfCourseAsStudent();
     }
-    
+
     
   }
   

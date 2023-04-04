@@ -1,6 +1,6 @@
 <div class="contents-container" *ngFor="let contentCourse of contentsOfCourse">
         <div class="contents-item">
-            <course-course-content (hasToReload)="reloadComponent($event)"
+            <course-course-content 
             [contentId] = "contentCourse.id"
             [contentText] = "contentCourse.content"
             ></course-course-content>
