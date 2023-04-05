@@ -6,6 +6,7 @@ import { AuthViewComponent } from './modules/auth/pages/auth-view/auth-view.comp
 import { CourseViewComponent } from './modules/course/pages/course-view/course-view.component';
 import { HomeViewComponent } from './modules/home/pages/home-view/home-view.component';
 import { IsLoginGuard } from './core/guards/is-login.guard';
+import { PublicCoursesViewComponent } from './modules/public_courses/pages/public-courses-view/public-courses-view.component';
 
 
 const routes: Routes = [ 
@@ -17,7 +18,11 @@ const routes: Routes = [
   component:AuthViewComponent,
   canActivate:[IsLoginGuard]
   },
-  {path:'course',component:CourseViewComponent,canActivate:[AuthGuard]}
+  {path:'course',
+  component:CourseViewComponent,
+  canActivate:[AuthGuard]},
+  {path:'public',
+  component:PublicCoursesViewComponent}
 ];
 
 @NgModule({

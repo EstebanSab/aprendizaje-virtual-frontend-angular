@@ -2,7 +2,8 @@
   
     <nav class="contenedor-menu">
       <ul class="contenedor-menu-ul" >
-        <li><a routerLink="/home" routerLinkActive="active" >Home</a></li>
+        <li *ngIf="isLogin()"><a routerLink="/home" routerLinkActive="active" >Home</a></li> 
+        <li><a routerLink="/public" routerLinkActive="active" >public</a></li>
         <li *ngIf="!isLogin()"><a routerLink="/login" routerLinkActive="active">Login</a></li>
         <li *ngIf="isLogin()"><div (click)="closeSesion()">close sesion</div></li>
       </ul>

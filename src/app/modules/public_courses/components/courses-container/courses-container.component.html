@@ -1,0 +1,9 @@
+<div class="course-container">
+<ng-template ngFor let-course [ngForOf]="coursesToList">
+    <div  class="course-item">
+        <home-course-preview
+        [course]="course">
+        </home-course-preview>
+    </div>
+</ng-template>
+</div>
