@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import {LayoutModule} from '@angular/cdk/layout';
 import { CreateCourseComponent } from './components/create-course/create-course.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { CreateCourseComponent } from './components/create-course/create-course.
     CreateCourseComponent,
   ],
   imports: [
+    FormsModule,
     CommonModule,
     HttpClientModule,
     LayoutModule

@@ -1,2 +1,5 @@
 <p>create-course works!</p>
-<div (click)="createNewCourse()">new course</div> 
+
+<input  type="text" name="name" id="name" placeholder="name"
+[(ngModel)]="newCourseName"/>
+<button (click)="createNewCourse()">new course</button> 

@@ -12,7 +12,7 @@ newCourseName="";
 
 
 createNewCourse(){
-  this.courseRestService.httpCreateCourse("testOne").subscribe(
+  this.courseRestService.httpCreateCourse(this.newCourseName).subscribe(
   (newCourse)=>{
     this.courseRestService.addMeProfessorToCourse(newCourse.body.id).subscribe()
   })
