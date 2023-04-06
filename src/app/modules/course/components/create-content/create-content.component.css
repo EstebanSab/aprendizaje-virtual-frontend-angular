@@ -1,14 +1,29 @@
 .create-content-container{
   max-width: 550px;
-  min-width: 375px;
+  min-width: 200px;
   height: 140px;
   border: 2px solid rgb(214, 34, 18);
+  text-align: center;
 }
 
 
 .create-content-item textarea{
-  width: 98%;
+  width: 96%;
   height: 80px;
   
   resize: none;
+  background-color: rgb(38, 35, 35);
+  color: bisque;
+  border-radius: 10px;
+  border: 2px solid white;
+}
+
+
+.create-content-item input{
+  margin-bottom: 5px;
+  background-color: rgb(38, 35, 35);
+  color: bisque;
+  border-radius: 5px;
+  border: 2px solid white;
+  text-align: center;
 }

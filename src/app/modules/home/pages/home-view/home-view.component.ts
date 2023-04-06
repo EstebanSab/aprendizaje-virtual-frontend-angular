@@ -18,7 +18,9 @@ export class HomeViewComponent implements OnInit {
   }
 
 
-
+  isProfessor():boolean{
+    return localStorage.getItem("rol")?.includes("professor")||false;
+  }
 
   responsiveVerifier(){
     this.breakpointObserver.observe(

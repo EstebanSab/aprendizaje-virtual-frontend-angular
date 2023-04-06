@@ -1,7 +1,7 @@
 <div class="content-container">
     <div class="content-button-edit">
-        <button *ngIf="isProfessorAndNoEditMode()" (click)="editText()">Edit</button>
-        <button *ngIf="!isProfessorAndNoEditMode()" (click)="CancelEdit()">Cancel edit</button>
+        <button *ngIf="isProfessor() && !isEditMode()" (click)="editText()">Edit</button>
+        <button *ngIf="isProfessor() && isEditMode()" (click)="CancelEdit()">Cancel edit</button>
     </div>
     
 
@@ -14,10 +14,10 @@
 
     <div class="content-item-edit" *ngIf="editMode">
 
-        <input  type="text" name="title" id="title" placeholder="title"
+        <input class="content-input-title" type="text" name="title" id="title" placeholder="title"
               [(ngModel)]="titleModified"/>
 
-        <textarea  type="text" name="Content" id="Content" placeholder="Content"
+        <textarea  class="content-textarea-content" type="text" name="Content" id="Content" placeholder="Content"
               [(ngModel)]="contentModified"></textarea>
 
           <button type="submit" (click)="saveContent(contentId)">save content</button>

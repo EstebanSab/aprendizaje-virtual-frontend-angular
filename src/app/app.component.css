@@ -1,4 +1,4 @@
-.contenedor-layout{
+.pc-layout{
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: 80px 1fr;
@@ -6,19 +6,47 @@
     color: bisque;
 }
 
+.phone-layout{
+    display: grid;
+    grid-template-columns: minmax(400px,600);
+    grid-template-rows: minmax(50px,auto) 1fr;
+    background-color: rgb(38, 35, 35);
+    color: bisque;
+}
+
+
 .contenedor-menu{
     background-color: rgb(84, 84, 232);
-    height: 80px;
+    height:80px;
 }
-.contenedor-menu-ul{
+.contenedor-menu-ul-pc{
     font-size: 20px;
-    background-color: rgb(84, 84, 232);
     display: flex;
     flex-direction: row;
     list-style: none;
     justify-content: space-evenly;
 }
+
+.contenedor-menu-ul-phone{
+    position: absolute;
+    background-color: rgb(84, 84, 232);
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    justify-content: space-evenly;
+    border: 2px solid blue;
+}
+
+
 a{
     color: #000;
     text-decoration: none; 
 }
+
+.menu-button{
+height: 40px;
+width: 80px;
+background-color: rgb(31, 31, 211);
+}
+

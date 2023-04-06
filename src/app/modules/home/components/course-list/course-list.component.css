@@ -2,16 +2,13 @@
         display: grid;
         grid-template-columns: auto;
         grid-template-rows: auto;
-        background-color: rgb(78, 33, 33);
         color: bisque;
-        gap: 5px;
-        border: 1px solid white;
+        row-gap: 30px; ;
         text-align: center;
 }
 
 
 .course-item{
-    margin-bottom: 10px;
-    background-color: rgb(48, 32, 32);
+    border: 2px solid yellowgreen;
 }
 

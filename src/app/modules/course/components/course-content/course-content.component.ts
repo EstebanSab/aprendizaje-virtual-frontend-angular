@@ -23,12 +23,15 @@ export class CourseContentComponent {
   //@Output() hasToReload= new EventEmitter<boolean>();
   //this.hasToReload.emit(true);
 
-  isProfessorAndNoEditMode():boolean{
-    if(localStorage.getItem("rol")?.includes("professor") && !this.editMode){
-      return true
-    }
-    return false;
+  isProfessor():boolean{
+    return localStorage.getItem("rol")?.includes("professor") || false;
   }
+
+  isEditMode():boolean{
+    return this.editMode
+  }
+
+
 
   CancelEdit(){
     this.editMode=false;

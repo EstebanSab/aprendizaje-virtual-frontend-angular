@@ -2,6 +2,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { enviroment } from 'src/environments/enviroment';
+import { CourseModel } from '../model/CourseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,18 @@ export class HomeRestService {
       `${this.apiServerUrl}/v1/course/professor/courses`)
     }
 
+    public httpCreateCourse(newCourse:string):Observable<any>{
+      return  this.http.post(
+        `${this.apiServerUrl}/v1/course`,
+        JSON.stringify({id:0,name:newCourse}),
+        {observe:'response'})
+      }
 
+      public addMeProfessorToCourse(idNewCourse:number):Observable<any>{
+        return  this.http.post(
+          `${this.apiServerUrl}/v1/method/professor/course/${idNewCourse}`,
+          {observe:'response'})
+        }
       
   
 

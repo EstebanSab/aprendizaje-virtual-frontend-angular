@@ -1,12 +1,18 @@
-<div class="contenedor-layout">
+<div [ngClass]="{'phone-layout': isPhonePortrait,'pc-layout': isWebPortrait}">
+<div class="contenedor-menu" >
+
+  <button class="menu-button" *ngIf="isPhonePortrait" (click)="menuActivated=!menuActivated">Menu</button>
+    
+  <ul *ngIf="!isPhonePortrait || menuActivated" [ngClass]="{'contenedor-menu-ul-phone': isPhonePortrait,'contenedor-menu-ul-pc': isWebPortrait}" >
+      <li><a routerLink="/public" routerLinkActive="active" >Public</a></li>  
+      <li *ngIf="isLogin()"><a routerLink="/home" routerLinkActive="active" >Home</a></li> 
+      <li *ngIf="!isLogin()"><a routerLink="/login" routerLinkActive="active">Login</a></li>
+      <li *ngIf="isLogin()"><div (click)="closeSesion()">close sesion</div></li>
+    </ul>
   
-    <nav class="contenedor-menu">
-      <ul class="contenedor-menu-ul" >
-        <li *ngIf="isLogin()"><a routerLink="/home" routerLinkActive="active" >Home</a></li> 
-        <li><a routerLink="/public" routerLinkActive="active" >public</a></li>
-        <li *ngIf="!isLogin()"><a routerLink="/login" routerLinkActive="active">Login</a></li>
-        <li *ngIf="isLogin()"><div (click)="closeSesion()">close sesion</div></li>
-      </ul>
-    </nav>
-    <div><router-outlet></router-outlet></div>
+ 
+  </div>
+    <div (click)="menuActivated=!menuActivated">
+      <router-outlet></router-outlet>
+    </div>
   </div>

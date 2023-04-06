@@ -1,13 +1,16 @@
 .course-profesor-name:hover{
   cursor:pointer;
+  color: rgb(221, 90, 90);
 }
 
 .course-name:hover{
   cursor:pointer;
+  color: rgb(221, 90, 90);
 }
 
 .course-container{
-  height: 150px;
+  min-height: 100px;
+  max-height: 200px;
   width: 100%;
   text-align: center;
 }

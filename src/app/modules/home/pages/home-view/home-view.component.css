@@ -3,13 +3,14 @@
     grid-template-columns: minmax(175px,275px) minmax(375px,550px) minmax(175px,275px);
     gap: 10px;
     grid-template-rows: auto;
+    height: 100vh;
     } 
 
 
 .phone-layout {
     display: flex;
     flex-direction: column;
-    background-color: aqua;
+    background-color: rgb(19, 56, 56);
 }
 
 .left-menu-phone{

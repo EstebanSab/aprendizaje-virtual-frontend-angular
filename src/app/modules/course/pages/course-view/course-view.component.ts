@@ -21,33 +21,23 @@ export class CourseViewComponent implements OnInit {
   }
   
   ngOnInit() {
-  
-    this.breakpointObserver.observe(
-      [Breakpoints.XSmall
-      ,Breakpoints.Small,
-      Breakpoints.Medium,
-      Breakpoints.Large]
-      ).subscribe((result) => {
-        this.isPhonePortrait = false;
-        this.isWebPortrait = false;
-
-        const breakpoints = result.breakpoints
-
-         if (breakpoints[Breakpoints.XSmall]) {
-            this.isPhonePortrait = true;
-          }
-
-         if (breakpoints[Breakpoints.Small] || breakpoints[Breakpoints.Medium] ||breakpoints[Breakpoints.Large]) {
-        this.isWebPortrait =true ;
-         }
-  });
-}
+    this.responsiveVerifier();
+  }
 
 isProfessor():boolean{
-  if(localStorage.getItem("rol")?.includes("professor")){
-    return true
-  }
-  return false;
+  return localStorage.getItem("rol")?.includes("professor")||false;
 }
+
+
+responsiveVerifier(){
+  this.breakpointObserver.observe([Breakpoints.XSmall]).subscribe(
+    (result) => {
+      const breakpoints = result.breakpoints
+  
+      this.isPhonePortrait = breakpoints[Breakpoints.XSmall]; 
+      this.isWebPortrait = !breakpoints[Breakpoints.XSmall];
+    });
+  }
+
 
 }
