@@ -18,6 +18,7 @@ export class CourseContentComponent {
 
   editMode=false;
   contentModified = "";
+  titleModified= "";
 
   //@Output() hasToReload= new EventEmitter<boolean>();
   //this.hasToReload.emit(true);
@@ -36,18 +37,19 @@ export class CourseContentComponent {
   editText(){
     this.editMode = true;
     this.contentModified=this.contentText;
+    this.titleModified=this.contentTitle;
   }
 
   saveContent(contentId:number){
     this.courseService.httpPutContent(
       {
       id:contentId,
-      title:"",
+      title:this.titleModified,
       content:this.contentModified
-    }).subscribe(
-    () =>{
+    }).subscribe(() =>{
       this.contentText=this.contentModified;
       this.editMode=false;
+      this.contentTitle=this.titleModified;
      });
     
   }

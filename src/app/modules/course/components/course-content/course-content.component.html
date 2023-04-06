@@ -13,8 +13,13 @@
     </div>
 
     <div class="content-item-edit" *ngIf="editMode">
+
+        <input  type="text" name="title" id="title" placeholder="title"
+              [(ngModel)]="titleModified"/>
+
         <textarea  type="text" name="Content" id="Content" placeholder="Content"
               [(ngModel)]="contentModified"></textarea>
+
           <button type="submit" (click)="saveContent(contentId)">save content</button>
     </div>
     

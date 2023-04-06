@@ -4,14 +4,14 @@
         grid-template-rows: auto;
         background-color: rgb(78, 33, 33);
         color: bisque;
-        text-align: center;
         gap: 5px;
-        text-align: center;
         border: 1px solid white;
+        text-align: center;
 }
 
+
 .course-item{
-    text-align: center;
     margin-bottom: 10px;
-    background-color: rgb(138, 59, 59);
+    background-color: rgb(48, 32, 32);
 }
+

@@ -1,11 +1,15 @@
+.layout-contents-container{
+    
+}
+
 .contents-container{
     display: grid;
-    grid-template-columns: 100%;
+    grid-template-columns: minmax(200px,100%);
     grid-template-rows: minmax(50px,auto) ;
-    border: 2px solid white;
 }
 
 .contents-item{
+    border: 2px solid greenyellow;
+    margin-bottom: 10px;
     text-align: center;
-
 }

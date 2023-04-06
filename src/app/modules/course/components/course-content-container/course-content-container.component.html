@@ -1,9 +1,11 @@
-<div class="contents-container" *ngFor="let contentCourse of contentsOfCourse">
-        <div class="contents-item">
-            <course-course-content 
-            [contentId] = "contentCourse.id"
-            [contentTitle] = "contentCourse.title"
-            [contentText] = "contentCourse.content"
-            ></course-course-content>
+<div class="layout-contents-container">
+    <div class="contents-container" *ngFor="let contentCourse of contentsOfCourse">
+            <div class="contents-item">
+                <course-course-content 
+                [contentId] = "contentCourse.id"
+                [contentTitle] = "contentCourse.title"
+                [contentText] = "contentCourse.content">
+                </course-course-content>
+        </div>
     </div>
 </div>
