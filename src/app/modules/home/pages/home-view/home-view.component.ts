@@ -11,15 +11,16 @@ export class HomeViewComponent implements OnInit {
   isPhonePortrait = false;
   isWebPortrait = false;
 
-
-
-
-  constructor(private breakpointObserver: BreakpointObserver) {
-  
-  }
+  constructor(private breakpointObserver: BreakpointObserver){}
   
   ngOnInit() {
-  
+  this.responsiveVerifier();
+  }
+
+
+
+
+  responsiveVerifier(){
     this.breakpointObserver.observe(
       [Breakpoints.XSmall
       ,Breakpoints.Small,
@@ -41,5 +42,4 @@ export class HomeViewComponent implements OnInit {
          }
   });
 }
-
 }

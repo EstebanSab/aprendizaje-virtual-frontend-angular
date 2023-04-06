@@ -10,6 +10,9 @@ import { PublicCoursesViewComponent } from './modules/public_courses/pages/publi
 
 
 const routes: Routes = [ 
+  {path:'',
+  component:PublicCoursesViewComponent
+  },
   {path:'home',
   component:HomeViewComponent,
   canActivate:[AuthGuard]

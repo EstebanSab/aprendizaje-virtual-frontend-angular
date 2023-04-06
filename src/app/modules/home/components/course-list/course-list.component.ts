@@ -3,6 +3,7 @@ import { CourseModel, Professor } from '../../model/CourseModel';
 import { HomeRestService } from '../../services/home-rest.service';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { HomeRoutingModule } from '../../home-routing.module';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'home-course-list',
@@ -12,10 +13,12 @@ import { HomeRoutingModule } from '../../home-routing.module';
 export class CourseListComponent implements OnInit {
 
 
-  constructor(private courseRestService:HomeRestService){}
+  constructor(private courseRestService:HomeRestService,
+      private breakpointObserver: BreakpointObserver){}
 
 courses:CourseModel[]= [];
-
+isPhonePortrait = false;
+isWebPortrait = false;
 
 
 ngOnInit(): void {
@@ -47,6 +50,29 @@ ngOnInit(): void {
 
     }
 
+
+
+    this.breakpointObserver.observe(
+      [Breakpoints.XSmall
+      ,Breakpoints.Small,
+      Breakpoints.Medium,
+      Breakpoints.Large]
+      ).subscribe((result) => {
+        this.isPhonePortrait = false;
+        this.isWebPortrait = false;
+
+        const breakpoints = result.breakpoints
+       
+
+         if (breakpoints[Breakpoints.XSmall]) {
+            this.isPhonePortrait = true;
+          }
+
+         if (breakpoints[Breakpoints.Small] || breakpoints[Breakpoints.Medium] ||breakpoints[Breakpoints.Large]) {
+        this.isWebPortrait =true ;
+         }
+  });
+
 }
 
 
@@ -64,6 +90,12 @@ getProfessorOfCourse(idCourse:number){
 
     return professors;
 }
+
+
+
+
+
+
 
 }
 

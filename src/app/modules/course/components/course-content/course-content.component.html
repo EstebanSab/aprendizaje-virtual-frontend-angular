@@ -1,9 +1,15 @@
 <div class="content-container">
-    <button *ngIf="isProfessor()" (click)="editText()">Edit</button>
+    <div class="content-button-edit">
+        <button *ngIf="isProfessorAndNoEditMode()" (click)="editText()">Edit</button>
+        <button *ngIf="!isProfessorAndNoEditMode()" (click)="CancelEdit()">Cancel edit</button>
+    </div>
     
+
     <div class="content-item-container" *ngIf="!editMode">
-        <div>{{contentId}}</div>
-        <div>{{contentText}}</div>
+        <div class="content-item-title">
+            <h2>{{contentTitle}}</h2></div>
+        <div class="content-item-content">
+            <h2>{{contentText}}</h2></div>
     </div>
 
     <div class="content-item-edit" *ngIf="editMode">

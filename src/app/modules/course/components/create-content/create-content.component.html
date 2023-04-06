@@ -1,9 +1,11 @@
 <div class="create-content-container">
   <form action=""> 
     <div class="create-content-item">
-      <label for="password">Content</label>
-      <textarea  type="text" name="Content" id="Content" placeholder="Content"
-      [(ngModel)]="content"></textarea>
+      <input  type="text" name="title" id="title" placeholder="title"
+      [(ngModel)]="courseContent.title"/>
+
+      <textarea  type="text" name="content" id="content" placeholder="content"
+      [(ngModel)]="courseContent.content"></textarea>
   </div>
 
   <button type="submit" (click)="saveContent()">save content</button>

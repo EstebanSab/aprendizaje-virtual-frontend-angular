@@ -1,6 +1,7 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-course-view',
   templateUrl: './course-view.component.html',
@@ -48,4 +49,5 @@ isProfessor():boolean{
   }
   return false;
 }
+
 }

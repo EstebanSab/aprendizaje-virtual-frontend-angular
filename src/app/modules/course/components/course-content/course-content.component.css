@@ -10,4 +10,18 @@
   resize: none;
 }
 
+.content-button-edit{
+  position: sticky;
+  text-align: end;
+}
+
+
+.content-item-title {
+  height: 30px;
+}
+.content-item-title h2{
+  display: inline;
+  border-bottom: 2px solid red;
+}
+
 

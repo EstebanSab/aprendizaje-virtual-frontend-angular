@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CourseService } from '../../services/course.service';
+import { CourseContentModel } from '../../model/CourseContentModel';
+
 
 @Component({
   selector: 'app-create-content',
@@ -11,9 +13,17 @@ export class CreateContentComponent {
 
   constructor(private courseService:CourseService){}
 
-  content:string="";
+  courseContent:CourseContentModel={
+    id:0,
+    title:"",
+    content:""
+  }
+  
 
   saveContent(){
-    this.courseService.apiPostContent(this.content);
+    this.courseService.apiPostContent(this.courseContent);
   }
+
+
+
 }

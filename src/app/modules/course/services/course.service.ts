@@ -43,6 +43,7 @@ export class CourseService {
         response.forEach(element => {
           contentOfCourse.push({
             id: element.id,
+            title:element.title,
             content: element.content
           })
         });
@@ -74,6 +75,7 @@ export class CourseService {
         response.forEach(element => {
           contentOfCourse.push({
             id: element.id,
+            title:element.title,
             content: element.content
           })
         });
@@ -89,17 +91,17 @@ export class CourseService {
 
 
   
-  private httpPostContent(content:string):Observable<any>{
+  private httpPostContent(content:CourseContentModel):Observable<any>{
     let courseId= this.getIdCourseSelectedNumber();
 
     return  this.http.post(
       `${this.apiServerUrl}/v1/content/course/${courseId}`,
-      JSON.stringify({id:0,content:content}),
+      JSON.stringify(content),
       {observe:'response'});
     }
 
 
-    public apiPostContent(content:string):void{
+    public apiPostContent(content:CourseContentModel):void{
       this.httpPostContent(content).subscribe();
     }
 

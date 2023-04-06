@@ -9,6 +9,7 @@ grid-template-rows: auto;
 .phone-layout {
   display: flex;
   flex-direction: column;
+  min-width: 200px;
 }
 
 .left-menu-phone{

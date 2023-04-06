@@ -14,6 +14,7 @@ export class CourseContentComponent {
 
   @Input() contentId:number = 0;
   @Input() contentText:string = "";
+  @Input() contentTitle:string="";
 
   editMode=false;
   contentModified = "";
@@ -21,11 +22,15 @@ export class CourseContentComponent {
   //@Output() hasToReload= new EventEmitter<boolean>();
   //this.hasToReload.emit(true);
 
-  isProfessor():boolean{
-    if(localStorage.getItem("rol")?.includes("professor")){
+  isProfessorAndNoEditMode():boolean{
+    if(localStorage.getItem("rol")?.includes("professor") && !this.editMode){
       return true
     }
     return false;
+  }
+
+  CancelEdit(){
+    this.editMode=false;
   }
 
   editText(){
@@ -37,10 +42,12 @@ export class CourseContentComponent {
     this.courseService.httpPutContent(
       {
       id:contentId,
+      title:"",
       content:this.contentModified
     }).subscribe(
     () =>{
-      this.reloadComponent(true);
+      this.contentText=this.contentModified;
+      this.editMode=false;
      });
     
   }
