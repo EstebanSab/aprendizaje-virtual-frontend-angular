@@ -1,4 +1,6 @@
 <div class="course-container">
+    <button *ngIf="isProfessor()" (click)="deleteCourse()">Delete</button>
+
     <h2 class="course-name" (click)="goCourseRedirection(course.id)" class="course-name">{{course.name}}</h2>
     
     <ng-template class="course-profesors" ngFor let-profesor [ngForOf]="course.professors">

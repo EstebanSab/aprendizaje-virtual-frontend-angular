@@ -26,7 +26,6 @@ export class CoursePreviewComponent {
     if(localStorage.getItem('token')){
     this.restCoursesService.apiSetStudentInCourse(this.course.id).subscribe(
        (courseDto)=>{
-        console.log(courseDto)
         localStorage.setItem("courseSelected",JSON.stringify(courseDto));
         this.router.navigate([`/course`]);
       }

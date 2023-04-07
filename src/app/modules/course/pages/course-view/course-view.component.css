@@ -10,18 +10,27 @@ grid-template-rows: minmax(100vh,auto);
   display: flex;
   flex-direction: column;
   min-width: 200px;
+  max-width: 599px;
+  min-height:100vh ;
+  max-height:auto ;
 }
 
 .left-menu-phone{
   order: 3;
+  align-self: center;
+  width: 90%;
 }
 
 .principal-content-phone{
     order: 1;
     margin-bottom: 10px;
+    align-self: center;
+    width: 90%;
 }
 
 .right-menu-phone{
   order: 2;
   margin-bottom: 10px;
+  align-self: center;
+  width: 90%;
 }

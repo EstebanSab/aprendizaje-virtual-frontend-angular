@@ -5,9 +5,21 @@
   gap: 20px;
 }
 
-.courses-component-container-pc{
-  border: 2px solid springgreen;
+.layout-phone{
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  max-width: 599px;
+  min-height:100vh ;
+  max-height:auto ;
 }
+
+.layout-phone >*{
+  width: 80%;
+  align-self: center;
+}
+
+
 
 .courses-filter-pc{
   border: 2px solid springgreen;

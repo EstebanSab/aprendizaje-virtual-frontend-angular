@@ -1,15 +1,19 @@
 .layout-pc{
         display: grid;
-        grid-template-columns: minmax(220px,400px) minmax(220px,400px);
+        grid-template-columns: minmax(180px,300px) minmax(180px,300px)  minmax(180px,300px);
         grid-template-rows: auto;
         color: bisque;
-        border: 1px solid white;
         gap: 20px;
 }
 
 .course-item{
     text-align: center;
     margin-bottom: 10px;
-    background-color: rgb(138, 59, 59);
     border: 2px solid yellowgreen;
+}
+
+
+.show-containers{
+    border: 2px solid palegreen;
+    text-align: center;
 }

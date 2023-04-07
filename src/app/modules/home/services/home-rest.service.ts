@@ -41,6 +41,11 @@ export class HomeRestService {
           {observe:'response'})
         }
       
-  
+  public restDeleteCourse(courseId:number):Observable<any>{
+    return  this.http.delete(
+      `${this.apiServerUrl}/v1/course/${courseId}`,
+      {observe:'response'})
+    }
+  }
 
-}
+

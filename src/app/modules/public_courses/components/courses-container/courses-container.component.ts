@@ -12,7 +12,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 export class CoursesContainerComponent implements OnInit {
 pagination:PaginationModel ={
   page:0,
-  size:8
+  size:9
 }
 
 isPhonePortrait=false;
@@ -32,7 +32,6 @@ ngOnInit(): void {
 
 showCourses(direcction:boolean){
   this.pagination.page =direcction?this.pagination.page+=1:this.pagination.page-=1;
-  console.log(this.pagination)
   this.doPagination();
 }
 
