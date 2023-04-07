@@ -1,4 +1,4 @@
-<div class="course-container">
+<div [class]="{'layout-pc':isWebPortrait,'layout-phone':isPhonePortrait}">
 <ng-template ngFor let-course [ngForOf]="coursesToList">
     <div  class="course-item">
         <home-course-preview
@@ -6,4 +6,8 @@
         </home-course-preview>
     </div>
 </ng-template>
+<div class="list-container-courses">
+    <button (click)="showCourses(false)">Back</button>
+    <button (click)="showCourses(true)">More</button>
+</div>
 </div>

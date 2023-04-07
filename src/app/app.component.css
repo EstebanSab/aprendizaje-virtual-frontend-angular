@@ -1,7 +1,7 @@
 .pc-layout{
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 80px 1fr;
+    grid-template-rows: 80px minmax(1fr,auto);
     background-color: rgb(38, 35, 35);
     color: bisque;
 }

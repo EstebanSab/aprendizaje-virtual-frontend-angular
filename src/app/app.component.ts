@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,8 +15,10 @@ export class AppComponent implements OnInit{
   isWebPortrait = false;
   menuActivated=false;
 
-   constructor(private appRoutingModule:AppRoutingModule,
+   constructor(private router:Router,
     private breakpointObserver: BreakpointObserver){}
+
+  
 
     ngOnInit() {
       this.responsiveVerifier();
@@ -27,11 +30,8 @@ export class AppComponent implements OnInit{
   }
 
   closeSesion(){
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    localStorage.removeItem('rol');
-    localStorage.removeItem('courseId');
-    this.appRoutingModule.goLoginRedirect();
+    localStorage.clear()
+    this.router.navigate([`/public`])
   }
 
 

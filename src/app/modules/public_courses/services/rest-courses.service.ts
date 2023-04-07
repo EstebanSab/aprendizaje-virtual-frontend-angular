@@ -2,18 +2,20 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { enviroment } from 'src/environments/enviroment';
+import { PaginationModel } from '../model/PaginationModel';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class HttpCoursesService {
+export class RestCoursesService {
   private apiServerUrl=enviroment.apiBaseUrl;
   constructor(private http:HttpClient) { }
 
 
-  public apiGetCoursesPaged():Observable<any>{
+  public apiGetCoursesPaged(page:PaginationModel):Observable<any>{
     return   this.http.get(
-      `${this.apiServerUrl}/v1/course/all/paged?page=0&size=2`)
+      `${this.apiServerUrl}/v1/course/all/paged?page=${page.page}&size=${page.size}`)
   }
 
 }

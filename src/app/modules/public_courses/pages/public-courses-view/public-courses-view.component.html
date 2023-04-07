@@ -1,2 +1,10 @@
-<p>public-courses-view works!</p>
-<public-courses-courses-container></public-courses-courses-container>
+<div [class]="{'layout-pc':isWebPortrait,'layout-phone':isPhonePortrait}">
+  <div>
+    filter of courses
+  </div>
+
+  <div>
+    <public-courses-courses-container></public-courses-courses-container>
+  </div>
+</div>
+

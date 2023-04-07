@@ -3,7 +3,7 @@
     grid-template-columns: minmax(175px,275px) minmax(375px,550px) minmax(175px,275px);
     gap: 10px;
     grid-template-rows: auto;
-    height: 100vh;
+    background-color: rgb(38, 35, 35);
     } 
 
 

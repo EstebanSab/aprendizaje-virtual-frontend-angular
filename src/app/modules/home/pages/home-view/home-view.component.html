@@ -12,7 +12,7 @@
     <div class="principal-content" [ngClass]="{'principal-phone': isPhonePortrait}">
         <home-course-list></home-course-list>
     </div>
-    <div *ngIf="isProfessor" class="right-menu" [ngClass]="{'right-menu-phone': isPhonePortrait}">
+    <div *ngIf="isProfessor()" class="right-menu" [ngClass]="{'right-menu-phone': isPhonePortrait}">
       <app-create-course></app-create-course>
     </div>
 </div>

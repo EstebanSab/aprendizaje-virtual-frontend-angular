@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { CourseModel } from '../../model/CourseModel';
-import { TransferDataService } from '../../services/transfer-data.service';
+
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,14 +18,12 @@ export class CoursePreviewComponent {
   }
 
 
-  constructor(private router:AppRoutingModule,
-    private transferData:TransferDataService){}
+  constructor(private router:Router){}
 
 
-  goCourseRedirection(arg0: number) {
-    this.transferData.setCourseIdNumber(arg0);
-    this.router.goCourseRedirect();
-    
+  goCourseRedirection(idCourse: number) {
+    localStorage.setItem("courseSelected",JSON.stringify({id:idCourse,name:this.course.name}));
+    this.router.navigate([`/course`])
   }
 
 

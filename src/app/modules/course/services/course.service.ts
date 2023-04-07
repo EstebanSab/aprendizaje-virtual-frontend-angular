@@ -1,5 +1,4 @@
 import { Injectable, OnInit } from '@angular/core';
-import { TransferDataService } from '../../home/services/transfer-data.service';
 import { enviroment } from 'src/environments/enviroment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -16,11 +15,10 @@ export class CourseService {
 
 
 
-  constructor(private transferData: TransferDataService,
-    private http: HttpClient) { }
+  constructor( private http: HttpClient) { }
 
    private getIdCourseSelectedNumber():number{
-    let courseId =localStorage.getItem("courseId") || "0";
+    let courseId = JSON.parse(localStorage.getItem("courseSelected") || "{id:0}").id;
    return parseInt(courseId);
    }
 

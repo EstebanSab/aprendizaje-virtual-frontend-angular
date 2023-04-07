@@ -28,5 +28,7 @@ export class CoursePreviewComponent {
   goProfessorRedirection(arg0: number) {
     alert("professor id"+arg0);
   }
+
+
   
 }
