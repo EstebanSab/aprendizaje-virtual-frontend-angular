@@ -1,6 +1,14 @@
 .layout-pc{
   display: grid;
   grid-template-columns: minmax(150px,250px) auto;
-  grid-template-rows: auto;
-  column-gap: 20px;
+  grid-template-rows: minmax(100vh,auto);
+  gap: 20px;
+}
+
+.courses-component-container-pc{
+  border: 2px solid springgreen;
+}
+
+.courses-filter-pc{
+  border: 2px solid springgreen;
 }

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { AppRoutingModule } from 'src/app/app-routing.module';
 import { CourseModel } from '../../model/CourseModel';
+import { RestCoursesService } from '../../services/rest-courses.service';
+import { Router } from '@angular/router';
 
 
 
@@ -17,14 +18,23 @@ export class CoursePreviewComponent {
   }
 
 
-  constructor(private router:AppRoutingModule){}
+  constructor(private router:Router,
+    private restCoursesService:RestCoursesService){}
 
 
-  goCourseRedirection(arg0: number) {
-    this.router.goCourseRedirect();
+  setStudentInCourse(){
+    if(localStorage.getItem('token')){
+    this.restCoursesService.apiSetStudentInCourse(this.course.id).subscribe(
+       (courseDto)=>{
+        console.log(courseDto)
+        localStorage.setItem("courseSelected",JSON.stringify(courseDto));
+        this.router.navigate([`/course`]);
+      }
+    )
+  }else{
+    this.router.navigate([`/login`]);
   }
-
-
+  }
   goProfessorRedirection(arg0: number) {
     alert("professor id"+arg0);
   }

@@ -1,6 +1,6 @@
 .layout-pc{
         display: grid;
-        grid-template-columns: auto  auto;
+        grid-template-columns: minmax(220px,400px) minmax(220px,400px);
         grid-template-rows: auto;
         color: bisque;
         border: 1px solid white;

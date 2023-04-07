@@ -42,10 +42,12 @@ doPagination(){
   this.restCoursesService.apiGetCoursesPaged(this.pagination).subscribe(
     (coursesApi)=>{
       this.coursesToList=coursesApi;
-    }
+      this.getProfessorOfCourse();
+     
+      });
+  }
+  
 
-  )
-}
 
 
 
@@ -61,5 +63,31 @@ doPagination(){
   }
 
 
+
+  getProfessorOfCourse(){
+    this.coursesToList.forEach(
+        (course:CourseModel) => {
+          if(localStorage.getItem("token")){
+          course.professors = this.getProfessorOfCourseRest(course.id)
+          }else{
+            course.professors = [{id:0,name:"You must login to see",especiality:""}]
+          }
+          return course
+      })}
+
+
+  getProfessorOfCourseRest(idCourse:number){
+    let professors:Professor[]=[];
+  
+    this.restCoursesService.getProfessorsOfCourse(idCourse).subscribe(
+      (professor:any)=>{
+         
+        professor.forEach((element:Professor) => {
+          professors.push(element)
+        });
+     
+      });
+      return professors;
+    }
 }
 

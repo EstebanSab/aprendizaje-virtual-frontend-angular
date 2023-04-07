@@ -89,7 +89,7 @@ export class CourseService {
 
 
   
-  private httpPostContent(content:CourseContentModel):Observable<any>{
+  public restPostContent(content:CourseContentModel):Observable<any>{
     let courseId= this.getIdCourseSelectedNumber();
 
     return  this.http.post(
@@ -99,9 +99,7 @@ export class CourseService {
     }
 
 
-    public apiPostContent(content:CourseContentModel):void{
-      this.httpPostContent(content).subscribe();
-    }
+   
 
 
 

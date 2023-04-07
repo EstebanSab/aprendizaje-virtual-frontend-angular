@@ -18,4 +18,15 @@ export class RestCoursesService {
       `${this.apiServerUrl}/v1/course/all/paged?page=${page.page}&size=${page.size}`)
   }
 
+  public apiSetStudentInCourse(courseId:number):Observable<any>{
+    return this.http.post(
+      `${this.apiServerUrl}/v1/method/student/course/${courseId}`,
+      {observe:'response'}
+    );
+  }
+
+  public getProfessorsOfCourse(idCourse:number):Observable<any>{
+    return  this.http.get(
+      `${this.apiServerUrl}/v1/professor/course/${idCourse}`)
+    }
 }

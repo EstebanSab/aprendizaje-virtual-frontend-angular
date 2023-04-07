@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CourseService } from '../../services/course.service';
 import { CourseContentModel } from '../../model/CourseContentModel';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { CourseContentModel } from '../../model/CourseContentModel';
 export class CreateContentComponent {
 
 
-  constructor(private courseService:CourseService){}
+  constructor(private courseService:CourseService,private router:Router){}
 
   courseContent:CourseContentModel={
     id:0,
@@ -21,9 +22,17 @@ export class CreateContentComponent {
   
 
   saveContent(){
-    this.courseService.apiPostContent(this.courseContent);
+    this.courseService.restPostContent(this.courseContent).subscribe(
+      (content)=>{
+      this.reloadComponent();
+      }
+    );
   }
 
-
+  reloadComponent(){
+    this.router.navigateByUrl('/',{skipLocationChange:true}).then(
+      ()=>{this.router.navigate([`/course`])}
+    )
+  }
 
 }

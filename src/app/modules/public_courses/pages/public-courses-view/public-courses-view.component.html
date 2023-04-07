@@ -1,9 +1,9 @@
 <div [class]="{'layout-pc':isWebPortrait,'layout-phone':isPhonePortrait}">
-  <div>
+  <div [class]="{'courses-filter-pc':isWebPortrait,'courses-filter-phone':isPhonePortrait}"> 
     filter of courses
   </div>
 
-  <div>
+  <div [class]="{'courses-component-container-pc':isWebPortrait,'courses-component-container-phone':isPhonePortrait}">
     <public-courses-courses-container></public-courses-courses-container>
   </div>
 </div>
